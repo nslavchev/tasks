@@ -18,9 +18,10 @@ public class CoffeeShop {
         return order;
     }
 
-    public void Charge(CreditCard cc, Map<Coffee, Long> bill){
+    public long Charge(CreditCard cc, Map<Coffee, Long> bill){
         long amount = bill.values().stream().mapToLong(l -> l).sum();
         cc.charge(amount);
+        return amount;
     }
 
     protected Coffee createCoffee(){
